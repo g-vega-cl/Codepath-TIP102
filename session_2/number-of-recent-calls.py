@@ -42,3 +42,28 @@ class RecentCounterTest(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+
+# Solution using functions
+def recent_counter(pings):
+    queue = deque()
+    result = []
+    for t in pings:
+        queue.append(t)
+        while queue and queue[0] + 3000 < t:
+            queue.popleft()
+        result.append(len(queue))
+    return result
+
+
+# Example cases
+pings1 = [1, 100, 3001, 3002]
+print(recent_counter(pings1))  # Output: [1, 2, 3, 3]
+
+pings2 = [1, 100, 300, 400, 4000]
+print(recent_counter(pings2))  # Output: [1, 2, 3, 4, 1]
+
+# Edge case
+pings3 = [1]
+print(recent_counter(pings3))  # Output: [1]
