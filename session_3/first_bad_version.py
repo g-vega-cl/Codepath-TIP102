@@ -16,8 +16,11 @@ def isBadVersion(version: int) -> bool:
     return version >= custom_index
 
 class Solution:
-
     def firstBadVersion(self, n: int) -> int:
+        # If no versions are bad, return -1
+        if(custom_index > n):
+            return -1
+
         # Initialize left and right pointers
         l, r = 1, n
         # While left pointer is less than right pointer we have not exhausted the versions
@@ -62,5 +65,12 @@ assert result == expected_result
 custom_index = 1
 result = solution.firstBadVersion(1)
 expected_result = custom_index
+print(f"Custom index: {custom_index}, Result: {result}, Expected: {expected_result}")
+assert result == expected_result
+
+# Test case 5: No bad versions
+custom_index = 11
+result = solution.firstBadVersion(10)
+expected_result = -1
 print(f"Custom index: {custom_index}, Result: {result}, Expected: {expected_result}")
 assert result == expected_result
