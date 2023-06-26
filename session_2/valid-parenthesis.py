@@ -41,6 +41,7 @@ class Solution:
         assert isValid("]") == False
         assert isValid("((") == False
         assert isValid("){") == False
+        assert isValid(" ") == True
 
 isValid = Solution().test(Solution().isValid)
 print(isValid == None)
