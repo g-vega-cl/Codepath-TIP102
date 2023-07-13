@@ -3,7 +3,6 @@ import unittest
 
 
 class RecentCounter:
-
     def __init__(self):
         # Create a new queue
         self.queue = deque()
